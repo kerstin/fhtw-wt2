@@ -1,0 +1,32 @@
+body {
+  background-image: url("../img/trollface-bg.jpg");
+  background-repeat: no-repeat;
+}
+
+#taskbar {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  height: 50px;
+  width: 100%;
+  background-color: #111111;
+  opacity: 0.8;
+}
+
+.icon {
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}
+
+
+#icon1 {
+  background-image: url("../img/grumpycat-75px.png");
+}
+#icon2 {
+  background-image: url("../img/doge-75px.png");
+}
+#icon3 {
+  background-image: url("../img/revengebaby-75px.png");
+}
