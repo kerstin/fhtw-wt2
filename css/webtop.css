@@ -1,32 +1,41 @@
 body {
-  background-image: url("../img/trollface-bg.jpg");
-  background-repeat: no-repeat;
+    background-image: url("../img/trollface-bg.jpg");
+    background-repeat: no-repeat;
+    background-color: #111111;
 }
 
 #taskbar {
-  position: absolute;
-  left: 0px;
-  bottom: 0px;
-  height: 50px;
-  width: 100%;
-  background-color: #111111;
-  opacity: 0.8;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    height: 50px;
+    width: 100%;
+    background-color: #111111;
+    opacity: 0.9;
 }
 
 .icon {
-  background-repeat: no-repeat;
-  width: 100px;
-  height: 100px;
-  margin: 10px;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    background-repeat: no-repeat;
 }
 
 
 #icon1 {
-  background-image: url("../img/grumpycat-75px.png");
+    background-image: url("../img/grumpycat-75px.png");
 }
 #icon2 {
-  background-image: url("../img/doge-75px.png");
+    background-image: url("../img/doge-75px.png");
 }
 #icon3 {
-  background-image: url("../img/revengebaby-75px.png");
+    background-image: url("../img/revengebaby-75px.png");
+}
+#startbutton {
+    position: relative;
+/*    top: 5px;
+    left: 5px;*/
+    height: 30px;
+    background-image: url("../img/trolllaugh-30px.png");
+    background-repeat: no-repeat;
 }

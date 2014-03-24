@@ -29,26 +29,15 @@
     </head>
 
     <body>
-        hello
-
         <div id="taskbar">
-            <div id="startbutton">
+            <div id="startbutton" class="icon">&nbsp;
             </div>
-          hello
         </div>
-
-
         <div id="icon1" class="icon">&nbsp;
         </div>
         <div id="icon2" class="icon">&nbsp;
         </div>
         <div id="icon3" class="icon">&nbsp;
         </div>
-
-
-
-        <!-- <img src="img/trollface-bg.jpg"> -->
-
-
     </body>
 </html>
