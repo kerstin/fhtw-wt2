@@ -1,4 +1,1 @@
-fhtw-wt2
-========
-
-Web development homework
+### Web dev homework for my UAS (II)
