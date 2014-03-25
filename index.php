@@ -4,27 +4,39 @@ session_start();
 
 $allowedusername = "kay";
 $allowedpassword = "1234";
+$cookiename = $allowedusername;
 
+/*  set cookie on correct login */
 if ($_POST['yourusername'] && $_POST['yourpassword']) {
     $username = $_POST['yourusername'];
     $password = $_POST['yourpassword'];
 
     if ( ($username == $allowedusername) && ($password == $allowedpassword) ) {
-        $_SESSION['username'] = $username;
-        $_SESSION['password'] = $password;
-        $_SESSION['login'] = 1;
+        $_SESSION['login'] = "ok";
+
+        if($_POST['keeplogin']) {
+            /* cookie expires in an hour */
+            setcookie($cookiename, 1, time()+3600);
+        } else {
+            /* delete cookie*/
+            setcookie($cookiename, 0, time()-3600);
+        }
+        $_SESSION['login'] = "ok";
     }
 }
 
-($_SESSION['login'] == 1) ? ($login = "ok") : '';
-
+/*  check for existence of cookie */
+if($_COOKIE[$cookiename] && $_COOKIE[$cookiename] == 1) {
+    $_SESSION['login'] = "ok";
+}
+$login = $_SESSION['login'];
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <title>
 <?
-    if (login != "ok") {
+    if ($login != "ok") {
         echo "Login";
     } else {
         echo "WT2 Webtop";
