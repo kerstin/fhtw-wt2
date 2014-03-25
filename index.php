@@ -1,12 +1,39 @@
 <?
+// start the session
+session_start();
+
+$allowedusername = "kay";
+$allowedpassword = "1234";
+
+if ($_POST['yourusername'] && $_POST['yourpassword']) {
+    $username = $_POST['yourusername'];
+    $password = $_POST['yourpassword'];
+
+    if ( ($username == $allowedusername) && ($password == $allowedpassword) ) {
+        $_SESSION['username'] = $username;
+        $_SESSION['password'] = $password;
+        $_SESSION['login'] = 1;
+    }
+}
+
+($_SESSION['login'] == 1) ? ($login = "ok") : '';
+
 ?>
 <!DOCTYPE html>
 <html>
     <head>
+        <title>
+<?
+    if (login != "ok") {
+        echo "Login";
+    } else {
+        echo "WT2 Webtop";
+    }
+?>
+        </title>
         <link href="css/webtop.css" rel="stylesheet" type="text/css">
         <script src="js/webtop.js">
         </script>
-
         <script>
 
             window.onresize = bgresize
@@ -25,19 +52,45 @@
               // document.getElementById('taskbar').style.height = height-300 + 'px'
             }
 
+            function displayStartmenu() {
+                element = 'startmenu'
+                switchDisplay(element)
+            }
+            function displayPHPWindow() {
+                element = 'phpinfo_container'
+                switchDisplay(element)
+            }
+
+            function switchDisplay(element) {
+                thiselement = element
+                theseClasses = document.getElementById(thiselement).className
+
+                if (theseClasses.indexOf('hidden') != -1) {
+                    newClasses = theseClasses.replace('hidden', 'visible');
+                    document.getElementById(thiselement).className = newClasses;
+                } else  {
+                    newClasses = theseClasses.replace('visible','hidden');
+                    document.getElementById(thiselement).className = newClasses;
+                }
+            }
+
+            window.onload = function() {
+                document.getElementById("startbutton").addEventListener('click', displayStartmenu);
+                document.getElementById("closebutton").addEventListener('click', displayPHPWindow);
+                document.getElementById("icon1").addEventListener('dblclick', displayPHPWindow);
+            }
         </script>
     </head>
 
     <body>
-        <div id="taskbar">
-            <div id="startbutton" class="icon">&nbsp;
-            </div>
-        </div>
-        <div id="icon1" class="icon">&nbsp;
-        </div>
-        <div id="icon2" class="icon">&nbsp;
-        </div>
-        <div id="icon3" class="icon">&nbsp;
-        </div>
+<?
+if ($login == "ok"):
+    include("desktop.php");
+else:
+    include("login.php");
+
+endif;
+?>
+
     </body>
 </html>
