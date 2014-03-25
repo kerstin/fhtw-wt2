@@ -2,21 +2,7 @@
 // start the session
 session_start();
 
-$allowedusername = "kay";
-$allowedpassword = "1234";
 
-if ($_POST['yourusername'] && $_POST['yourpassword']) {
-    $username = $_POST['yourusername'];
-    $password = $_POST['yourpassword'];
-
-    if ( ($username == $allowedusername) && ($password == $allowedpassword) ) {
-        $_SESSION['username'] = $username;
-        $_SESSION['password'] = $password;
-        $_SESSION['login'] = 1;
-    }
-}
-
-($_SESSION['login'] == 1) ? ($login = "ok") : '';
 
 ?>
 <!DOCTYPE html>
