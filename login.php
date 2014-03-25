@@ -17,6 +17,12 @@
                     </p>
 
                     <p>
+                        <label for="keeplogin">
+                          <span>Eingeloggt bleiben</span>
+                          <input type="checkbox" id="" name="keeplogin" />
+                        </label>
+                    </p>
+                    <p>
                           <input type="submit" id="button" name="submit" value="Login"/>
                     </p>
                 </form>
