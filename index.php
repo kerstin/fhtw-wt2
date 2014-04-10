@@ -52,6 +52,16 @@
             background-color: lightyellow;
             padding: 10px;
          }
+         .popupclose {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            height: 20px;
+            width: 20px;
+            padding: 5px;
+            text-align: center;
+            background-color: lightblue;
+         }
 
          #phpinfo {
             top: 50px;
@@ -114,6 +124,9 @@
             <div class="popupwindow" id="phpinfo">
                 <div class="popuptopbar">
                 phpinfo
+                    <div class="popupclose">
+                    x
+                    </div>
                 </div>
                 <div class="popupcontent">
                     phpinfo<br>
@@ -123,6 +136,9 @@
             <div class="popupwindow" id="kontoapp">
                 <div class="popuptopbar">
                     konto app
+                    <div class="popupclose">
+                    x
+                    </div>
                 </div>
                 <div class="popupcontent">
                     Squid put a bird on it yr kale chips YOLO, fingerstache quinoa master cleanse. Raw denim fixie quinoa, meggings mustache authentic Banksy four loko Truffaut hoodie tousled dreamcatcher Wes Anderson gentrify. PBR&B bespoke small batch umami, leggings fap post-ironic mumblecore sartorial retro Tumblr letterpress jean shorts organic. Four loko flexitarian selfies, Austin keffiyeh flannel Portland tote bag fixie American Apparel. Tousled selfies Austin meh, flannel stumptown scenester leggings flexitarian slow-carb lo-fi Carles. Locavore craft beer Pitchfork, Banksy Wes Anderson gentrify bespoke pop-up High Life. Banksy cred Neutra organic, banjo cliche twee Pinterest locavore cornhole paleo viral aesthetic PBR&B.
@@ -131,6 +147,9 @@
             <div class="popupwindow" id="someapp">
                 <div class="popuptopbar">
                     some other app
+                    <div class="popupclose">
+                    x
+                    </div>
                 </div>
                 <div class="popupcontent">
                     app content
