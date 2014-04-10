@@ -2,7 +2,12 @@
 // start the session
 session_start();
 
-include_once("login.php");
+include("login.php");
+
+// logout
+// destroy session & unset cookie on click on logout link
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,16 +30,17 @@ include_once("login.php");
             background-image: url("img/bg_trollfaces.jpg");
         }
 
+        a {
+            color: white;
+            text-decoration: underline;
+        }
+
          .desktopicon {
             margin: 10px;
             /*float: left;*/
             width: 75px;
             height: 75px;
          }
-/*
-         .icontest {
-            z-index: 100;
-         }*/
 
          .popupwindow {
             position: absolute;
@@ -83,6 +89,46 @@ include_once("login.php");
             top: 250px;
             left: 450px;
          }
+
+         #placeholdercontainer {
+            float: left;
+            width: 50%;
+            height: 500px;
+            margin-left: 110px;
+
+/*            background-color: white;
+            border: 2px solid grey;*/
+
+         }
+         #logincontainer {
+            position: absolute;
+            left: 40%;
+            top: 25%;
+            width: 220px;
+            height: 320px;
+/*            background-color: white;
+            border: 2px solid grey;*/
+
+         }
+         #loginform {
+            padding: 20px;
+            background-color: white;
+            border: 2px solid grey;
+         }
+
+         .formrow {
+            padding: 5px;
+         }
+         .formlabel {
+            font-size: 0.8em;
+
+/*            float: left;
+*/         }
+         .checkbox {
+            float: left;
+            text-align: top;
+         }
+
          #maincontainer {
             position: absolute;
             width: 100%;
@@ -150,10 +196,15 @@ include_once("login.php");
         </style>
 
         <script>
+
+
         </script>
     </head>
 
     <body>
+<?
+if ($thisuser != ''):
+?>
         <div id="maincontainer">
             <div class="icontest">
             <img class="desktopicon" src="img/icon_grumpycat.png">
@@ -205,20 +256,23 @@ include_once("login.php");
             <div id="useraccount">
                 <div id="username">
                 <?
-                // echo username
+                    echo $_SESSION['user'];
                 ?>
-                Kay
                 </div>
                 <div id="logout">
-                    logout
+                    <a href="?logout=1">logout</a>
                 </div>
             </div>
-
         </div>
         <div id="startmenu">
             <div class="startmenu_item">Item 1</div>
             <div class="startmenu_item">Item 2</div>
             <div class="startmenu_item">Item 3 has a longer name</div>
         </div>
+<?
+else:
+    include("loginscreen.php");
+endif;
+?>
     </body>
 </html>
