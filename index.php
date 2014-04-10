@@ -1,3 +1,9 @@
+<?
+// start the session
+session_start();
+
+include_once("login.php");
+?>
 <!DOCTYPE html>
 <html>
     <head>
