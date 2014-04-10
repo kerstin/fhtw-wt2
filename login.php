@@ -34,5 +34,5 @@ if($_COOKIE[$cookiename] && $_COOKIE[$cookiename] == 1) {
     $_SESSION['user'] = $_COOKIE[$cookiename];
 }
 
-$login = $_SESSION['user'];
+$thisuser = $_SESSION['user'];
 ?>
