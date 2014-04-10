@@ -33,24 +33,39 @@
          .popupwindow {
             position: absolute;
             width: 500px;
-            height: 100px;
-            overflow: scroll;
+            height: 200px;
             border: 2px solid fuchsia;
             border-color: fuchsia;
             background-color: pink;
          }
 
+         .popuptopbar {
+            height: 25px;
+            padding-left: 5px;
+            padding-top: 5px;
+            color: white;
+            background-color: grey;
+
+         }
+         .popupcontent {
+            overflow: scroll;
+            background-color: lightyellow;
+            padding: 10px;
+         }
+
          #phpinfo {
             top: 50px;
             left: 300px;
-            z-index: 50;
          }
          #kontoapp {
             top: 100px;
             left: 250px;
-            z-index: 200;
          }
 
+         #someapp {
+            top: 150px;
+            left: 450px;
+         }
          #maincontainer {
             position: absolute;
             width: 100%;
@@ -97,12 +112,29 @@
             <img class="desktopicon" src="img/icon_revengebaby.png">
 
             <div class="popupwindow" id="phpinfo">
-                phpinfo<br>
-                Squid put a bird on it yr kale chips YOLO, fingerstache quinoa master cleanse. Raw denim fixie quinoa, meggings mustache authentic Banksy four loko Truffaut hoodie tousled dreamcatcher Wes Anderson gentrify. PBR&B bespoke small batch umami, leggings fap post-ironic mumblecore sartorial retro Tumblr letterpress jean shorts organic. Four loko flexitarian selfies, Austin keffiyeh flannel Portland tote bag fixie American Apparel. Tousled selfies Austin meh, flannel stumptown scenester leggings flexitarian slow-carb lo-fi Carles. Locavore craft beer Pitchfork, Banksy Wes Anderson gentrify bespoke pop-up High Life. Banksy cred Neutra organic, banjo cliche twee Pinterest locavore cornhole paleo viral aesthetic PBR&B.
+                <div class="popuptopbar">
+                phpinfo
+                </div>
+                <div class="popupcontent">
+                    phpinfo<br>
+                </div>
             </div>
             text
             <div class="popupwindow" id="kontoapp">
-                konto app
+                <div class="popuptopbar">
+                    konto app
+                </div>
+                <div class="popupcontent">
+                    Squid put a bird on it yr kale chips YOLO, fingerstache quinoa master cleanse. Raw denim fixie quinoa, meggings mustache authentic Banksy four loko Truffaut hoodie tousled dreamcatcher Wes Anderson gentrify. PBR&B bespoke small batch umami, leggings fap post-ironic mumblecore sartorial retro Tumblr letterpress jean shorts organic. Four loko flexitarian selfies, Austin keffiyeh flannel Portland tote bag fixie American Apparel. Tousled selfies Austin meh, flannel stumptown scenester leggings flexitarian slow-carb lo-fi Carles. Locavore craft beer Pitchfork, Banksy Wes Anderson gentrify bespoke pop-up High Life. Banksy cred Neutra organic, banjo cliche twee Pinterest locavore cornhole paleo viral aesthetic PBR&B.
+                </div>
+            </div>
+            <div class="popupwindow" id="someapp">
+                <div class="popuptopbar">
+                    some other app
+                </div>
+                <div class="popupcontent">
+                    app content
+                </div>
             </div>
 
         </div>
