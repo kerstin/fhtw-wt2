@@ -9,12 +9,12 @@ $init_photoappX = 450;
 $init_photoappY = 250;
 
 // php info app
-(!$_SESSION['phpaX']) ? ($_SESSION['phpaX'] = $init_phpappX) : '';
-(!$_SESSION['phpaY']) ? ($_SESSION['phpaY'] = $init_phpappY) : '';
+(!$_SESSION['phpappX']) ? ($_SESSION['phpappX'] = $init_phpappX) : '';
+(!$_SESSION['phpappY']) ? ($_SESSION['phpappY'] = $init_phpappY) : '';
 // konto app
-(!$_SESSION['kaX']) ? ($_SESSION['kaX'] = $init_kontoappX) : '';
-(!$_SESSION['kaY']) ? ($_SESSION['kaY'] = $init_kontoappY) : '';
+(!$_SESSION['kontoappX']) ? ($_SESSION['kontoappX'] = $init_kontoappX) : '';
+(!$_SESSION['kontoappY']) ? ($_SESSION['kontoappY'] = $init_kontoappY) : '';
 // photo app
-(!$_SESSION['paX']) ? ($_SESSION['paX'] = $init_photoappX) : '';
-(!$_SESSION['paY']) ? ($_SESSION['paY'] = $init_photoappY) : '';
+(!$_SESSION['photoappX']) ? ($_SESSION['photoappX'] = $init_photoappX) : '';
+(!$_SESSION['photoappY']) ? ($_SESSION['photoappY'] = $init_photoappY) : '';
 ?>
