@@ -3,10 +3,12 @@
 session_start();
 
 include("login.php");
+include("positions.php");
 
 // logout
 // destroy session & unset cookie on click on logout link
 
+// get coordinates from elements via JS
 
 ?>
 <!DOCTYPE html>
@@ -14,11 +16,14 @@ include("login.php");
     <head>
         <meta charset="utf-8"/>
         <title>Webtop</title>
+        <script src="js/jquery-1.10.2"></script>
+        <script src="js/jquery-ui-1.10.4.custom.js"></script>
+        <script src="js/jquery-ui-1.10.4.custom.min"></script>
 
         <!-- <link href="css/webtop.css" rel="stylesheet" type="text/css"> -->
         <!-- <script src="js/webtop.js"></script> -->
 
-         <style>
+        <style>
 
         body {
             overflow: hidden;
@@ -33,6 +38,14 @@ include("login.php");
         a {
             color: white;
             text-decoration: underline;
+        }
+
+        .visible {
+            display: block;
+        }
+
+        .hidden {
+            display: none;
         }
 
          .desktopicon {
@@ -77,17 +90,16 @@ include("login.php");
          }
 
          #phpinfo {
-            top: 50px;
-            left: 300px;
-            /*z-index: 100;*/
+            top: <? echo $_SESSION['phpappY']; ?>px;
+            left: <? echo $_SESSION['phpappX']; ?>px;
          }
          #kontoapp {
-            top: 150px;
-            left: 250px;
+            top: <? echo $_SESSION['kontoappY']; ?>px;
+            left: <? echo $_SESSION['kontoappX']; ?>px;
          }
          #photoapp {
-            top: 250px;
-            left: 450px;
+            top: <? echo $_SESSION['photoappY']; ?>px;
+            left: <? echo $_SESSION['photoappX']; ?>px;
          }
 
          #placeholdercontainer {
@@ -134,7 +146,7 @@ include("login.php");
             width: 100%;
             height: 100%;
             padding: 15px;
-            background-color: lightyellow;
+            /*background-color: lightyellow;*/
             overflow: hidden;
          }
 
@@ -196,8 +208,57 @@ include("login.php");
         </style>
 
         <script>
+            $(function() {
+            $( ".draggable" ).draggable();
+            });
 
+            window.onresize = bgresize
 
+            function bgresize () {
+              w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+              h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+              document.getElementsByTagName('body')[0].style.backgroundSize = '' +w+ 'px ' +h+ 'px'
+              taskbar(w,h)
+            }
+
+            function taskbar(width,height) {
+              somesize = Math.random()*100
+            }
+
+            function displayStartmenu() {
+                element = 'startmenu'
+                switchDisplay(element)
+            }
+            function displayPHPWindow() {
+                element = 'phpinfo_container'
+                switchDisplay(element)
+            }
+            function displayKontoApp() {
+                element = 'kontoapp_container'
+                switchDisplay(element)
+            }
+
+            function switchDisplay(element) {
+                thiselement = element
+                theseClasses = document.getElementById(thiselement).className
+
+                if (theseClasses.indexOf('hidden') != -1) {
+                    newClasses = theseClasses.replace('hidden', 'visible');
+                    document.getElementById(thiselement).className = newClasses;
+
+                } else  {
+                    newClasses = theseClasses.replace('visible','hidden');
+                    document.getElementById(thiselement).className = newClasses;
+                }
+            }
+
+            window.onload = function() {
+                document.getElementById("starticon").addEventListener('click', displayStartmenu)
+                document.getElementById("closebutton").addEventListener('click', displayPHPWindow)
+                // document.getElementById("closebutton2").addEventListener('click', displayKontoApp)
+                document.getElementById("icon1").addEventListener('dblclick', displayPHPWindow)
+                document.getElementById("icon3").addEventListener('dblclick', displayKontoApp)
+            }
         </script>
     </head>
 
@@ -207,12 +268,12 @@ if ($thisuser != ''):
 ?>
         <div id="maincontainer">
             <div class="icontest">
-            <img class="desktopicon" src="img/icon_grumpycat.png">
+            <img class="desktopicon draggable" src="img/icon_grumpycat.png">
             </div>
-            <img class="desktopicon" src="img/icon_doge.png">
-            <img class="desktopicon" src="img/icon_revengebaby.png">
+            <img class="desktopicon draggable" src="img/icon_doge.png">
+            <img class="desktopicon draggable" src="img/icon_revengebaby.png">
 
-            <div class="popupwindow" id="phpinfo">
+            <div class="popupwindow draggable" id="phpinfo">
                 <div class="popuptopbar">
                 phpinfo
                     <div class="popupclose">
@@ -223,7 +284,7 @@ if ($thisuser != ''):
 <!--                     <object class="" type="text/html" data="<? include ("prog_phpinfo.php"); ?>"></object> -->
                 </div>
             </div>
-            <div class="popupwindow" id="kontoapp">
+            <div class="popupwindow draggable" id="kontoapp">
                 <div class="popuptopbar">
                     konto app
                     <div class="popupclose">
@@ -234,7 +295,7 @@ if ($thisuser != ''):
                     Squid put a bird on it yr kale chips YOLO, fingerstache quinoa master cleanse. Raw denim fixie quinoa, meggings mustache authentic Banksy four loko Truffaut hoodie tousled dreamcatcher Wes Anderson gentrify. PBR&B bespoke small batch umami, leggings fap post-ironic mumblecore sartorial retro Tumblr letterpress jean shorts organic. Four loko flexitarian selfies, Austin keffiyeh flannel Portland tote bag fixie American Apparel. Tousled selfies Austin meh, flannel stumptown scenester leggings flexitarian slow-carb lo-fi Carles. Locavore craft beer Pitchfork, Banksy Wes Anderson gentrify bespoke pop-up High Life. Banksy cred Neutra organic, banjo cliche twee Pinterest locavore cornhole paleo viral aesthetic PBR&B.
                 </div>
             </div>
-            <div class="popupwindow" id="photoapp">
+            <div class="popupwindow draggable" id="photoapp">
                 <div class="popuptopbar">
                     photo app
                     <div class="popupclose">
@@ -264,7 +325,7 @@ if ($thisuser != ''):
                 </div>
             </div>
         </div>
-        <div id="startmenu">
+        <div id="startmenu" class="hidden">
             <div class="startmenu_item">Item 1</div>
             <div class="startmenu_item">Item 2</div>
             <div class="startmenu_item">Item 3 has a longer name</div>
