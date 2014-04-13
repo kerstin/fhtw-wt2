@@ -2,9 +2,10 @@
 /*  check for correct/allowed login data */
 function authenticateuser($username, $password) {
   $allowedusername = "kay";
+  $allowedusername2 = "testuser";
   $allowedpassword = "1234";
 
-  if (($username == $allowedusername) && ($password == $allowedpassword)) {
+  if (( ($username == $allowedusername) || ($username == $allowedusername2)) && ($password == $allowedpassword)) {
     return TRUE;
   } else {
     return FALSE;
