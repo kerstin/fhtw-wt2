@@ -35,6 +35,11 @@ include("positions.php");
             background-image: url("img/bg_trollfaces.jpg");
         }
 
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+
         a {
             color: white;
             text-decoration: underline;
@@ -82,9 +87,9 @@ include("positions.php");
             position: absolute;
             right: 0px;
             top: 0px;
-            height: 20px;
+            height: 27px;
             width: 20px;
-            padding: 5px;
+            padding: 3px 5px 0px 5px;
             text-align: center;
             background-color: lightblue;
          }
@@ -155,8 +160,7 @@ include("positions.php");
             bottom: 0px;
             width: 100%;
             height: 50px;
-            background: rgba(4,4,4,0.9);
-            opacity: 0.8;
+            background: rgba(4,4,4,0.85);
          }
          #starticon {
             float: left;
@@ -268,10 +272,10 @@ if ($thisuser != ''):
 ?>
         <div id="maincontainer">
             <div class="icontest">
-            <img class="desktopicon draggable" src="img/icon_grumpycat.png">
+            <img class="desktopicon draggable" src="img/icon_grumpycat.png" alt="Grumpy Cat desktop icon">
             </div>
-            <img class="desktopicon draggable" src="img/icon_doge.png">
-            <img class="desktopicon draggable" src="img/icon_revengebaby.png">
+            <img class="desktopicon draggable" src="img/icon_doge.png" alt="Doge desktop icon">
+            <img class="desktopicon draggable" src="img/icon_revengebaby.png" alt="Revenge baby desktop icon">
 
             <div class="popupwindow draggable" id="phpinfo">
                 <div class="popuptopbar">
@@ -281,7 +285,7 @@ if ($thisuser != ''):
                     </div>
                 </div>
                 <div class="popupcontent">
-<!--                     <object class="" type="text/html" data="<? include ("prog_phpinfo.php"); ?>"></object> -->
+                    <iframe src="prog_phpinfo.php" name="phpinfo" allowTransparency="true"></iframe>
                 </div>
             </div>
             <div class="popupwindow draggable" id="kontoapp">
@@ -292,7 +296,7 @@ if ($thisuser != ''):
                     </div>
                 </div>
                 <div class="popupcontent">
-                    Squid put a bird on it yr kale chips YOLO, fingerstache quinoa master cleanse. Raw denim fixie quinoa, meggings mustache authentic Banksy four loko Truffaut hoodie tousled dreamcatcher Wes Anderson gentrify. PBR&B bespoke small batch umami, leggings fap post-ironic mumblecore sartorial retro Tumblr letterpress jean shorts organic. Four loko flexitarian selfies, Austin keffiyeh flannel Portland tote bag fixie American Apparel. Tousled selfies Austin meh, flannel stumptown scenester leggings flexitarian slow-carb lo-fi Carles. Locavore craft beer Pitchfork, Banksy Wes Anderson gentrify bespoke pop-up High Life. Banksy cred Neutra organic, banjo cliche twee Pinterest locavore cornhole paleo viral aesthetic PBR&B.
+                    Squid put a bird on it yr kale chips YOLO, fingerstache quinoa master cleanse. Raw denim fixie quinoa, meggings mustache authentic Banksy four loko Truffaut hoodie tousled dreamcatcher Wes Anderson gentrify. PBR&amp;B bespoke small batch umami, leggings fap post-ironic mumblecore sartorial retro Tumblr letterpress jean shorts organic. Four loko flexitarian selfies, Austin keffiyeh flannel Portland tote bag fixie American Apparel. Tousled selfies Austin meh, flannel stumptown scenester leggings flexitarian slow-carb lo-fi Carles. Locavore craft beer Pitchfork, Banksy Wes Anderson gentrify bespoke pop-up High Life. Banksy cred Neutra organic, banjo cliche twee Pinterest locavore cornhole paleo viral aesthetic PBR&amp;B.
                 </div>
             </div>
             <div class="popupwindow draggable" id="photoapp">
@@ -309,7 +313,7 @@ if ($thisuser != ''):
         </div>
         <div id="taskbar">
             <div id="starticon">
-                <img class="" src="img/icon_trolllaugh.png">
+                <img class="" src="img/icon_trolllaugh.png" alt="">
             </div>
             <div id="taskbarcontents">
                 &nbsp;
