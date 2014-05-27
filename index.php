@@ -1,6 +1,7 @@
 <?
 // start the session
 session_start();
+mysqli_connect(localhost,root,mysql,wt2);
 
 include("login.php");
 include("positions.php");
@@ -94,6 +95,10 @@ include("positions.php");
             background-color: lightblue;
          }
 
+         #rssfeed {
+            top: <? echo $_SESSION['rssappY']; ?>px;
+            left: <? echo $_SESSION['rssappX']; ?>px;
+         }
          #phpinfo {
             top: <? echo $_SESSION['phpappY']; ?>px;
             left: <? echo $_SESSION['phpappX']; ?>px;
@@ -212,57 +217,92 @@ include("positions.php");
         </style>
 
         <script>
+            // jquery
             $(function() {
-            $( ".draggable" ).draggable();
+                // drag items
+                $( ".draggable" ).draggable();
+                // click on doge icon
+                $( "#icon_doge" ).click(function() {
+                    alert( "Doge clicked!" );
+                });
+                // double click on div
+                $( "div" ).dblclick(function() {
+                    alert( "Hello World!" );
+                });
+                // hide elements
+                // $( ".popupclose" ).click(function() {
+                //     $( ".hideable" ).hide( "slow", function() {
+                //     });
+                // });
+
+                $(".popupclose").click(function(e) {
+                    e.stopPropagation();
+                    $(this).parent().parent().hide( "slow", function() {
+                    });
+                });
             });
 
-            window.onresize = bgresize
+            // $(".hide.").is(":visible");
 
-            function bgresize () {
-              w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
-              h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
-              document.getElementsByTagName('body')[0].style.backgroundSize = '' +w+ 'px ' +h+ 'px'
-              taskbar(w,h)
-            }
 
-            function taskbar(width,height) {
-              somesize = Math.random()*100
-            }
+            // $( "*", document.body ).click(function( event ) {
+            //     var offset = $( this ).offset();
+            //     event.stopPropagation();
+            // $( "#result" ).text( this.tagName +
+            //     " coords ( " + offset.left + ", " + offset.top + " )" );
+            // });
 
-            function displayStartmenu() {
-                element = 'startmenu'
-                switchDisplay(element)
-            }
-            function displayPHPWindow() {
-                element = 'phpinfo_container'
-                switchDisplay(element)
-            }
-            function displayKontoApp() {
-                element = 'kontoapp_container'
-                switchDisplay(element)
-            }
+            //     .done(function( msg ) {
+            //     alert( "Data Saved: " + hello );
+            // });
 
-            function switchDisplay(element) {
-                thiselement = element
-                theseClasses = document.getElementById(thiselement).className
+            // window.onresize = bgresize
 
-                if (theseClasses.indexOf('hidden') != -1) {
-                    newClasses = theseClasses.replace('hidden', 'visible');
-                    document.getElementById(thiselement).className = newClasses;
+            // function bgresize () {
+            //   w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+            //   h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+            //   document.getElementsByTagName('body')[0].style.backgroundSize = '' +w+ 'px ' +h+ 'px'
+            //   taskbar(w,h)
+            // }
 
-                } else  {
-                    newClasses = theseClasses.replace('visible','hidden');
-                    document.getElementById(thiselement).className = newClasses;
-                }
-            }
+            // function taskbar(width,height) {
+            //   somesize = Math.random()*100
+            // }
 
-            window.onload = function() {
-                document.getElementById("starticon").addEventListener('click', displayStartmenu)
-                document.getElementById("closebutton").addEventListener('click', displayPHPWindow)
-                // document.getElementById("closebutton2").addEventListener('click', displayKontoApp)
-                document.getElementById("icon1").addEventListener('dblclick', displayPHPWindow)
-                document.getElementById("icon3").addEventListener('dblclick', displayKontoApp)
-            }
+            // function displayStartmenu() {
+            //     element = 'startmenu'
+            //     switchDisplay(element)
+            // }
+            // function displayPHPWindow() {
+            //     element = 'phpinfo_container'
+            //     switchDisplay(element)
+            // }
+            // function displayKontoApp() {
+            //     element = 'kontoapp_container'
+            //     switchDisplay(element)
+            // }
+
+            // function switchDisplay(element) {
+            //     thiselement = element
+            //     theseClasses = document.getElementById(thiselement).className
+
+            //     if (theseClasses.indexOf('hidden') != -1) {
+            //         newClasses = theseClasses.replace('hidden', 'visible');
+            //         document.getElementById(thiselement).className = newClasses;
+
+            //     } else  {
+            //         newClasses = theseClasses.replace('visible','hidden');
+            //         document.getElementById(thiselement).className = newClasses;
+            //     }
+            // }
+
+            // window.onload = function() {
+            //     document.getElementById("starticon").addEventListener('click', displayStartmenu)
+            //     document.getElementById("closebutton").addEventListener('click', displayPHPWindow)
+            //     // document.getElementById("closebutton2").addEventListener('click', displayKontoApp)
+            //     document.getElementById("icon1").addEventListener('dblclick', displayPHPWindow)
+            //     document.getElementById("icon3").addEventListener('dblclick', displayKontoApp)
+            // }
         </script>
     </head>
 
@@ -272,11 +312,13 @@ if ($thisuser != ''):
 ?>
         <div id="maincontainer">
             <div class="icontest">
-            <img class="desktopicon draggable" src="img/icon_grumpycat.png" alt="Grumpy Cat desktop icon">
+            <img id="icon_grumpycat" class="desktopicon draggable"
+                src="img/icon_grumpycat.png" alt="Grumpy Cat desktop icon">
             </div>
-            <img class="desktopicon draggable" src="img/icon_doge.png" alt="Doge desktop icon">
-            <img class="desktopicon draggable" src="img/icon_revengebaby.png" alt="Revenge baby desktop icon">
-
+            <img id="icon_doge" class="desktopicon draggable"
+                src="img/icon_doge.png" alt="Doge desktop icon">
+            <img id="icon_revengebaby" class="desktopicon draggable"
+                src="img/icon_revengebaby.png" alt="Revenge baby desktop icon">
             <div class="popupwindow draggable" id="phpinfo">
                 <div class="popuptopbar">
                 phpinfo
@@ -285,7 +327,8 @@ if ($thisuser != ''):
                     </div>
                 </div>
                 <div class="popupcontent">
-                    <iframe src="prog_phpinfo.php" name="phpinfo" allowTransparency="true"></iframe>
+                    <iframe src="prog_phpinfo.php" name="phpinfo"
+                        allowTransparency="true"></iframe>
                 </div>
             </div>
             <div class="popupwindow draggable" id="kontoapp">
@@ -296,7 +339,20 @@ if ($thisuser != ''):
                     </div>
                 </div>
                 <div class="popupcontent">
-                    Squid put a bird on it yr kale chips YOLO, fingerstache quinoa master cleanse. Raw denim fixie quinoa, meggings mustache authentic Banksy four loko Truffaut hoodie tousled dreamcatcher Wes Anderson gentrify. PBR&amp;B bespoke small batch umami, leggings fap post-ironic mumblecore sartorial retro Tumblr letterpress jean shorts organic. Four loko flexitarian selfies, Austin keffiyeh flannel Portland tote bag fixie American Apparel. Tousled selfies Austin meh, flannel stumptown scenester leggings flexitarian slow-carb lo-fi Carles. Locavore craft beer Pitchfork, Banksy Wes Anderson gentrify bespoke pop-up High Life. Banksy cred Neutra organic, banjo cliche twee Pinterest locavore cornhole paleo viral aesthetic PBR&amp;B.
+                    Squid put a bird on it yr kale chips YOLO, fingerstache
+                    quinoa master cleanse. Raw denim fixie quinoa, meggings
+                    mustache authentic Banksy four loko Truffaut hoodie
+                    tousled dreamcatcher Wes Anderson gentrify. PBR&amp;B
+                    bespoke small batch umami, leggings fap post-ironic
+                    mumblecore sartorial retro Tumblr letterpress jean shorts
+                    organic. Four loko flexitarian selfies, Austin keffiyeh
+                    flannel Portland tote bag fixie American Apparel. Tousled
+                    selfies Austin meh, flannel stumptown scenester leggings
+                    flexitarian slow-carb lo-fi Carles. Locavore craft beer
+                    Pitchfork, Banksy Wes Anderson gentrify bespoke pop-up
+                    High Life. Banksy cred Neutra organic, banjo cliche twee
+                    Pinterest locavore cornhole paleo viral aesthetic
+                    PBR&amp;B.
                 </div>
             </div>
             <div class="popupwindow draggable" id="photoapp">
@@ -310,8 +366,20 @@ if ($thisuser != ''):
                     app content
                 </div>
             </div>
+            <div class="popupwindow draggable hideable" id="rssfeed">
+                <div class="popuptopbar hide">
+                rss feed
+                    <div class="popupclose clickme" id="#clickme">
+                    x
+                    </div>
+                </div>
+                <div class="popupcontent">
+                    <iframe src="prog_rssfeed.php" name="rssfeed"
+                        allowTransparency="true"></iframe>
+                </div>
+            </div>
         </div>
-        <div id="taskbar">
+        <div id="taskbar" class="taskbar">
             <div id="starticon">
                 <img class="" src="img/icon_trolllaugh.png" alt="">
             </div>
