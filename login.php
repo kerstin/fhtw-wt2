@@ -5,7 +5,8 @@ function authenticateuser($username, $password) {
   $allowedusername2 = "testuser";
   $allowedpassword = "1234";
 
-  if (( ($username == $allowedusername) || ($username == $allowedusername2)) && ($password == $allowedpassword)) {
+  if (( ($username == $allowedusername) || ($username == $allowedusername2))
+    && ($password == $allowedpassword)) {
     return TRUE;
   } else {
     return FALSE;
