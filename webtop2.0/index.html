@@ -5,12 +5,41 @@
         <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 
         <style media="screen" type="text/css">
+        body {
+            background-image: url("img/bg_trollfaces.jpg");
+        }
+
+        #icon_1:before{
+            content:url(img/icon_doge.png);
+        }
+        #icon_2:before {
+            content:url(img/icon_successkid.png);
+        }
+        #icon_3:before {
+            content:url(img/icon_grumpycat.png);
+        }
+        /* testing */
+        #icon_3 {
+            border: 1px green solid;
+        }
+        #icon_start:before {
+            content:url(img/icon_trolllaugh.png);
+        }
+        div.webtop_icon {
+            /*background-color: pink;*/
+            padding: 0.5em;
+        }
         </style>
 
         <script type="text/javascript">
         </script>
     </head>
     <body>
-        Hello, this is my webtop.
+        <div id="icon_1" class="webtop_icon">
+        </div>
+        <div id="icon_3" class="webtop_icon">
+        </div>
+        <div id="icon_2" class="webtop_icon">
+        </div>
     </body>
 </html>
