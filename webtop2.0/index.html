@@ -26,12 +26,31 @@
         #icon_3 {
             border: 1px green solid;
         }
-        #icon_start:before {
-            content:url(img/icon_trolllaugh.png);
-        }
         div.webtop_icon {
             /*background-color: pink;*/
             padding: 0.5em;
+        }
+        #taskbar {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            height: 46px;
+            width: 100%;
+            background-color: #FF4F34;
+        }
+        #icon_start {
+            background: url(img/icon_trolllaugh.png) no-repeat center center #FFFFFF;
+            background-size: auto;
+            height: 100%;
+            width: -moz-fit-content;
+            width: -webkit-fit-content;
+            width: fit-content;
+            padding-left: 0.5em;
+            padding-right: 0.5em;
+            background-color: blue;
+        }
+        .hidden {
+             visibility:hidden;
         }
         </style>
 
@@ -44,6 +63,12 @@
         <div id="icon_3" class="webtop_icon">
         </div>
         <div id="icon_2" class="webtop_icon">
+        </div>
+
+        <div id="taskbar">
+            <div id="icon_start">
+                <img class="invisible" src="img/icon_trolllaugh.png">
+            </div>
         </div>
     </body>
 </html>
