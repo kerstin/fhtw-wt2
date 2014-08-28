@@ -37,6 +37,7 @@
             height: 46px;
             width: 100%;
             background-color: #FF4F34;
+            opacity: 0.9;
         }
         #icon_start {
             background: url(img/icon_trolllaugh.png) no-repeat center center #FFFFFF;
@@ -45,9 +46,22 @@
             width: -moz-fit-content;
             width: -webkit-fit-content;
             width: fit-content;
-            padding-left: 0.5em;
+            padding-left: 1em;
             padding-right: 0.5em;
             background-color: blue;
+        }
+        #webtop_container {
+            position: absolute;
+            overflow: hidden;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+        }
+        #webtop_contents {
+/*            top: 0px;
+            left: 0px;*/
+            padding: 1em;
         }
         .hidden {
              visibility:hidden;
@@ -58,17 +72,21 @@
         </script>
     </head>
     <body>
-        <div id="icon_1" class="webtop_icon">
-        </div>
-        <div id="icon_3" class="webtop_icon">
-        </div>
-        <div id="icon_2" class="webtop_icon">
-        </div>
-
-        <div id="taskbar">
-            <div id="icon_start">
-                <img class="invisible" src="img/icon_trolllaugh.png">
+        <div id="webtop_container">
+            <div id="webtop_contents">
+                <div id="icon_1" class="webtop_icon">
+                </div>
+                <div id="icon_3" class="webtop_icon">
+                </div>
+                <div id="icon_2" class="webtop_icon">
+                </div>
             </div>
         </div>
+        <div id="taskbar">
+            <div id="icon_start">
+                <img class="hidden" src="img/icon_trolllaugh.png">
+            </div>
+        </div>
+
     </body>
 </html>
