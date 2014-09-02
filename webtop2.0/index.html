@@ -4,7 +4,8 @@
         <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
         <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 
-        <style media="screen" type="text/css">
+
+        <style type="text/css">
         html {
             background: url(img/bg_trollfaces.jpg) no-repeat center center fixed #FFFFFF;
             -webkit-background-size: 100% 100%;
@@ -22,21 +23,26 @@
         #icon_3:before {
             content:url(img/icon_grumpycat.png);
         }
-        /* testing */
         #icon_3 {
-            border: 1px green solid;
+            /* testing - remove later */
+            /*border: 1px green solid;*/
         }
         div.webtop_icon {
-            /*background-color: pink;*/
+            /* testing - remove later */
+            width: -moz-fit-content;
+            width: -webkit-fit-content;
+            width: fit-content;
             padding: 0.5em;
+            /*float: left;*/
+            background-color: pink;
         }
         #taskbar {
-            position: absolute;
+            position: fixed;
             bottom: 0px;
             left: 0px;
-            height: 46px;
+            height: 3em;
             width: 100%;
-            background-color: #FF4F34;
+            background-color: #AEC6CF;
             opacity: 0.9;
         }
         #icon_start {
@@ -48,7 +54,7 @@
             width: fit-content;
             padding-left: 1em;
             padding-right: 0.5em;
-            background-color: blue;
+            background-color: #AEC6CF;
         }
         #webtop_container {
             position: absolute;
@@ -59,26 +65,125 @@
             height: 100%;
         }
         #webtop_contents {
-/*            top: 0px;
-            left: 0px;*/
             padding: 1em;
         }
+        #scriptoutput {
+            background-color: #FFFFFF;
+            top: 400px;
+            left: 400px;
+            height: 300px;
+            width: 600px;
+            color: #000000;
+            padding: 2em;
+        }
+        .window_container {
+            position: fixed;
+            top: 100px;
+            left: 400px;
+            width: 400px;
+            height: 200px;
+            color: #FDFD96;
+            background-color: #FFD1DC;
+            border: 3px solid #CB99C9;
+        }
+        .window_topbar {
+            box-sizing: border-box;
+            width: 100%;
+            height: 2.2em;
+            background-color: #FDFD96;
+            border-bottom: 3px solid #CB99C9;
+        }
+        .window_closebtn {
+            box-sizing: border-box;
+            float: right;
+            height: 100%;
+            text-align: center;
+            padding-left: 0.5em;
+            padding-right: 0.5em;
+            /*border: 1px solid #CB99C9;*/
+            border-left: 2px solid #CB99C9;
+            color: #CB99C9;
+            /*background-color: #AEC6CF;*/
+            /* light grey blue*/
+            /*background-color: #AEC6CF;*/
+        }
+        .window_title {
+            float: left;
+            padding-left: 0.5em;
+            padding-right: 0.5em;
+            color: #CB99C9;
+        }
+        .window_closebtn div {
+            clear: both;
+            padding-bottom: 0.1em;
+        }
+        .window_title, .window_closebtn div {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+        }
+        .window_content {
+            clear: both;
+            padding: 0.5em;
+        }
         .hidden {
-             visibility:hidden;
+             visibility: hidden;
         }
         </style>
 
         <script type="text/javascript">
+
+            // function iconPos () {
+            //     var div = $( "div:eq(2)" );
+            //     var id = div.attr('id');
+            //     var position = div.position();
+            //     var text = "id: " +id+ ", left: " + position.left + ", top: " + position.top;
+            //     // alert(text);
+            //     $("#scriptoutput").text(text);
+            // }
+
+            function iconPos () {
+                $("div").each(function() {
+                    // text = $( this ).text()
+                    var id = $( this ).attr('id');
+                    var position = $( this ).position();
+                    $("#scriptoutput").append("id: " + id + ", left: " +position.left + ", top: " + position.top + "<br>");
+                });
+            }
         </script>
     </head>
-    <body>
+    <body onLoad="iconPos()">
         <div id="webtop_container">
             <div id="webtop_contents">
+
                 <div id="icon_1" class="webtop_icon">
                 </div>
                 <div id="icon_3" class="webtop_icon">
                 </div>
                 <div id="icon_2" class="webtop_icon">
+                </div>
+
+                <div id="window_1" class="window_container">
+                    <div class="window_topbar">
+                        <div class="window_title">
+                            this is the title
+                        </div>
+                        <div class="window_closebtn">
+                            <div>
+                            &nbsp;x&nbsp;
+                            </div>
+                        </div>
+                    </div>
+                    <div class="window_content">
+                        this is some content.<br>
+                        LOREM IPSUM ETC. ETC.
+                    </div>
+                </div>
+                <div id="window_2" class="popupwindow hidden">
+                </div>
+                <div id="window_3" class="popupwindow hidden">
                 </div>
             </div>
         </div>
@@ -87,6 +192,5 @@
                 <img class="hidden" src="img/icon_trolllaugh.png">
             </div>
         </div>
-
     </body>
 </html>
