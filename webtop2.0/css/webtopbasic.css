@@ -1,3 +1,51 @@
+html {
+    background: url(../img/bg_trollfaces.jpg) no-repeat center center fixed #FFFFFF;
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
 body {
     font-family: "Comic Sans MS";
 }
+#webtop_container {
+    position: absolute;
+    overflow: hidden;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+#webtop_contents {
+    padding: 1em;
+}
+#taskbar {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    height: 3em;
+    width: 100%;
+    background-color: #AEC6CF;
+    opacity: 0.9;
+}
+#icon_start {
+    background: url(../img/icon_trolllaugh.png) no-repeat center center #FFFFFF;
+    background-size: auto;
+    height: 100%;
+    width: -moz-fit-content;
+    width: -webkit-fit-content;
+    width: fit-content;
+    padding-left: 1em;
+    padding-right: 0.5em;
+    background-color: #AEC6CF;
+}
+#icon_1:before{
+    content:url(../img/icon_doge.png);
+}
+#icon_2:before {
+    content:url(../img/icon_successkid.png);
+}
+#icon_3:before {
+    content:url(../img/icon_grumpycat.png);
+}
+
